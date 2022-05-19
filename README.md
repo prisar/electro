@@ -6,4 +6,6 @@ Goal: Detect Nitrogen, Phosphorus, and Potassium (NPK) nutrients of soil
  - connect display with the dev board 
 
 
-gcc -S hello.c -o hello.s  
+gcc -S hello.c -o hello.s 
+
+https://shakti.org.in/software.html#p-block 
