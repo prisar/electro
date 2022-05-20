@@ -8,4 +8,6 @@ Goal: Detect Nitrogen, Phosphorus, and Potassium (NPK) nutrients of soil
 
 gcc -S hello.c -o hello.s 
 
-https://shakti.org.in/software.html#p-block 
+https://shakti.org.in/software.html#p-block
+
+nasm -f bin boot.nasm && qemu-system-x86_64 boot 
