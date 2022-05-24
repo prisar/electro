@@ -121,6 +121,7 @@ impl fmt::Write for Writer {
     }
 }
 
+/*
 pub fn print_something() {
     use core::fmt::Write;
     let mut writer = Writer {
@@ -133,6 +134,7 @@ pub fn print_something() {
     writer.write_string("ello! ");
     write!(writer, "The numbers are {} and {}", 42, 1.0/3.0).unwrap();
 }
+*/
 
 use lazy_static::lazy_static;
 use spin::Mutex;
@@ -153,7 +155,7 @@ macro_rules! println {
 
 #[macro_export]
 macro_rules! print {
-    ($($arg:tt)*) => ($crate::io::_print(format_args!($($arg)*)));
+    ($($arg:tt)*) => ($crate::vga_buffer::_print(format_args!($($arg)*)));
 }
 
 #[doc(hidden)]
