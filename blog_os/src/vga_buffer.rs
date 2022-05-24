@@ -78,11 +78,27 @@ impl Writer {
         }
     }
 
-    fn new_line(&mut self) {/* TODO */}
-}
+    fn new_line(&mut self) {
+        for row in 1..BUFFER_HEIGHT {
+            for col in 0..BUFFER_WIDTH {
+                let character = self.buffer.chars[row][col].read();
+                self.buffer.chars[row - 1][col].write(character);
+            }
+        }
+        self.clear_row(BUFFER_HEIGHT - 1);
+        self.column_position = 0;
+    }
 
+    fn clear_row(&mut self, row: usize) {
+        let blank = ScreenChar {
+            ascii_character: b' ',
+            color_code: self.color_code,
+        };
+        for col in 0..BUFFER_WIDTH {
+            self.buffer.chars[row][col].write(blank);
+        }
+    }
 
-impl Writer {
     pub fn write_string(&mut self, s: &str) {
         for byte in s.bytes() {
             match byte {
@@ -117,3 +133,15 @@ pub fn print_something() {
     writer.write_string("ello! ");
     write!(writer, "The numbers are {} and {}", 42, 1.0/3.0).unwrap();
 }
+
+use lazy_static::lazy_static;
+
+lazy_static! { 
+    pub static ref WRITER: Writer = Writer {
+        column_position: 0,
+    	color_code: ColorCode::new(Color::Yellow, Color::Black),
+    	buffer: unsafe { &mut *(0xb8000 as *mut Buffer) },
+    };
+}
+
+
