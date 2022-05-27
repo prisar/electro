@@ -12,13 +12,15 @@ use bootloader::{BootInfo, entry_point};
 entry_point!(kernel_main);
 
 fn kernel_main(boot_info: &'static BootInfo) -> ! {
-    use x86_64::VirtAddr;
-    use blog_os::memory::translate_addr;
+    use blog_os::memory;
+    use x86_64::{structures::paging::Translate, VirtAddr};
 
     println!("Hello World{}", "!");
     blog_os::init();
 
     let phys_mem_offset = VirtAddr::new(boot_info.physical_memory_offset);
+    // new: initialize a mapper
+    let mapper = unsafe { memory::init(phys_mem_offset) };
 
     let addresses = [
         // the identity-mapped vga buffer page
@@ -33,9 +35,11 @@ fn kernel_main(boot_info: &'static BootInfo) -> ! {
 
     for &address in &addresses {
         let virt = VirtAddr::new(address);
-        let phys = unsafe { translate_addr(virt, phys_mem_offset) };
+        // new: use the `mapper.translate_addr` method
+        let phys = mapper.translate_addr(virt);
         println!("{:?} -> {:?}", virt, phys);
     }
+
 
     #[cfg(test)]
     test_main();
