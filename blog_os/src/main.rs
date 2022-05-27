@@ -8,10 +8,14 @@ use core::panic::PanicInfo;
 use blog_os::println;
 use blog_os::print;
 use bootloader::{BootInfo, entry_point};
+use alloc::boxed::Box;
+
+extern crate alloc;
 
 entry_point!(kernel_main);
 
 fn kernel_main(boot_info: &'static BootInfo) -> ! {
+    use blog_os::allocator;
     use blog_os::memory;
     use x86_64::{structures::paging::Page, VirtAddr};
     use blog_os::memory::BootInfoFrameAllocator;
@@ -32,6 +36,11 @@ fn kernel_main(boot_info: &'static BootInfo) -> ! {
     // write the string `New!` to the screen through the new mapping
     let page_ptr: *mut u64 = page.start_address().as_mut_ptr();
     unsafe { page_ptr.offset(400).write_volatile(0x_f021_f077_f065_f04e)};
+
+    allocator::init_heap(&mut mapper, &mut frame_allocator)
+        .expect("heap initialization failed");
+
+    let x = Box::new(41);
 
     #[cfg(test)]
     test_main();
