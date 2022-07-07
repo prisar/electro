@@ -1,4 +1,4 @@
-##### FreeRtos
+##### FreeRtos - esp32
 [task ticks](https://wokwi.com/projects/335412432006546003)
 
 [num](https://wokwi.com/projects/336272965874221651)
@@ -10,3 +10,5 @@
 [LEDFLASH struct](https://wokwi.com/projects/336456103426523730)
 
 [race](https://wokwi.com/projects/336507731756188242)
+
+[mutex mpu6050]
