@@ -11,4 +11,4 @@
 
 [race](https://wokwi.com/projects/336507731756188242)
 
-[mutex mpu6050]
+[mutex mpu6050](https://wokwi.com/projects/336530765299843668)
