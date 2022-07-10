@@ -32,3 +32,6 @@ configure openocd
 
 gdb tools (optional)
 https://github.com/ferrous-systems/embedded-trainings/blob/master/INSTALL.md
+
+
+https://github.com/ntut-rf/mcu - stm32 wiki
