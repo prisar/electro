@@ -14,3 +14,5 @@
 [mutex mpu6050](https://wokwi.com/projects/336530765299843668)
 
 [pin to core](https://wokwi.com/projects/336770457264980562)
+
+[oled](https://wokwi.com/projects/336780196432577108)
