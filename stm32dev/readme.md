@@ -1,5 +1,7 @@
 #### stm32Mx 
 
+### mac
+
 install stm32mx and stm32cubeIde
 
 #### flash mcu 
@@ -33,5 +35,18 @@ configure openocd
 gdb tools (optional)
 https://github.com/ferrous-systems/embedded-trainings/blob/master/INSTALL.md
 
+### ubuntu
+
+ - usb
+ lsusb - check for stlink in the list
+
+ - build chain 
+ `sudo apt install stlink-tools gcc-arm-none-eabi`
+
+ - pull https://github.com/libopencm3/libopencm3, as submodule
+ 
+ - use template, https://github.com/libopencm3/libopencm3-template
+
 
 https://github.com/ntut-rf/mcu - stm32 wiki
+
