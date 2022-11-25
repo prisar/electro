@@ -1,4 +1,4 @@
-Goal: Detect Nitrogen, Phosphorus, and Potassium (NPK) nutrients of soil
+Goal: ~~Detect Nitrogen, Phosphorus, and Potassium (NPK) nutrients of soil~~ hobby project
 
 ##### TODO 
 
