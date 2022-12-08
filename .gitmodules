@@ -1,6 +1,6 @@
 [submodule "tcpip/TCP-IP-NetworkNote"]
 	path = tcpip/TCP-IP-NetworkNote
 	url = https://github.com/riba2534/TCP-IP-NetworkNote
-[submodule "stm32dev/libopencm3"]
-	path = stm32dev/libopencm3
+[submodule "stm32/libopencm3"]
+	path = stm32/libopencm3
 	url = https://github.com/libopencm3/libopencm3
