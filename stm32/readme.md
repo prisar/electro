@@ -47,6 +47,10 @@ https://github.com/ferrous-systems/embedded-trainings/blob/master/INSTALL.md
  
  - use template, https://github.com/libopencm3/libopencm3-template
 
+ - openocd, `sudo apt install openocd`
+
+ - flash
+ `st-flash --reset write blink-led.bin 0x8000000`
 
 https://github.com/ntut-rf/mcu - stm32 wiki
 
