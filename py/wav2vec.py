@@ -29,5 +29,5 @@ model = AutoModelForCTC.from_pretrained("ai4bharat/indicwav2vec_v1_bengali")
 
 pipe = pipeline(model="ai4bharat/indicwav2vec_v1_bengali")
 
-bangla = pipe("https://github.com/prisar/electro/raw/main/py/bangla.wav")
+bangla = pipe("/Users/apple/Downloads/electro/py/bangla.wav")#"https://github.com/prisar/electro/raw/main/py/bangla.wav")
 print(bangla)
